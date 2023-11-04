@@ -1,0 +1,665 @@
+{% extends 'init.html' %}
+{% load static %}
+
+{% block cssextras %}
+<link
+                rel="stylesheet"
+                href="https://unpkg.com/swiper/swiper-bundle.min.css"
+                />
+
+{% endblock %}
+{% block menu %}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                        <a style="font-family: century-gothic, sans-serif;font-weight:800;"  class="nav-link font-bold" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                        <a style="font-family: century-gothic, sans-serif;font-weight:800;"  class="nav-link font-bold" href="#nosotros">Quienes Somos</a>
+                </li>
+                <li class="nav-item">
+                        <a style="font-family: century-gothic, sans-serif;font-weight:800;"  class="nav-link font-bold" href="#mejoresplatos">Promociones</a>
+                </li>
+                <li class="nav-item">
+                        <a style="font-family: century-gothic, sans-serif;font-weight:800;"  class="nav-link font-bold" href="#sucursales">Sucursales</a>
+                </li>
+        </ul>
+        <div class="user_option">
+                <a
+                                class="bg-transparent p-2 text-white hover:opacity-80"
+                                href="https://www.facebook.com/LaVacaCarnesALaParrilla/"
+                                target="_blank"
+                                >
+                                <i
+                                                class="fa fa-facebook"
+                                                style="font-size: 30px"
+                                                aria-hidden="true"
+                                                ></i>
+                </a>
+
+                        <a
+                                        class="bg-transparent p-2 text-white hover:opacity-80"
+                                        href="https://www.instagram.com/lavaca_carnesalaparrilla/"
+                                        target="_blank"
+                                        >
+                                        <i
+                                                        class="fa fa-instagram"
+                                                        style="font-size: 30px"
+                                                        aria-hidden="true"
+                                                        ></i>
+                        </a>
+                                <a
+                                                class="bg-transparent p-2 text-white hover:opacity-80"
+                                                href="https://wa.link/2j9e2e"
+                                                target="_blank"
+                                                >
+                                                <i
+                                                                class="fa fa-whatsapp"
+                                                                style="font-size: 30px"
+                                                                aria-hidden="true"
+                                                                ></i>
+                                </a>
+        </div>
+</div>
+{% endblock %}
+
+{% block cabecera %}
+<div class="swiper mySwiper3 h-100">
+        <div class="swiper-wrapper h-[80vh] xl:h-[85vh]">
+                {% for por in portada_list %}
+                <div class="swiper-slide h-[40vh]">
+                        <section class="slider_section mt-[30vh] top-[30vh]">
+                                <div class="container">
+                                        <div class="row mt-0 lg:mt-0">
+                                                <div
+                                                                class="col-12  left-0 text-center xl:left-auto md:col-md-7 col-lg-5 top-[-20vh] lg:top-0 w-full xl:flex xl:justify-center md:bottom-[20vh] xl:align-middle absolute z-40 h-[80vh] md:h-[50vh] xl:h-[35vh] p-4 rounded-xl"
+                                                                style="background-color: rgba(10, 10, 10, 0.6)"
+                                                                >
+                                                                <div
+                                                                                class="detail-box flex flex-col justify-center text-center items-center align-middle w-full xl:w-[60vh] h-[35vh] lg:h-[20vh]"
+                                                                                >
+                                                                                <div
+                                                                                                class="font-extrabold font-sans text-5xl text-center lg:text-4xl xl:text-5xl text-white"
+                                                                                                >
+                                                                                                {{por.nombre}}
+                                                                                </div>
+                                                                                        <p
+                                                                                                        class="mt-3 font-extrabold text-yellow-500 text-center pt-2 rounded-xl uppercase"
+                                                                                                        >
+                                                                                                        {{por.descripcion}}
+                                                                                        </p>
+                                                                </div>
+                                                </div>
+                                                        <img
+                                                                        class="z-0 right-0 bottom-5 w-full lg:w-[100vh] min-h-[120vh] md:bottom-10 top-[-90vh] absolute "
+                                                                        src="{{por.portada.url}}"
+                                                                        alt=""
+                                                                        />
+                                        </div>
+                                </div>
+                        </section>
+                </div>
+                {% empty %}
+                <div class="flex justify-center w-full h-full items-center align-middle text-4xl text-white font-bold">No tiene portadas registradas</div>
+                {% endfor %}
+
+        </div>
+        <div class="swiper-button-next text-yellow-500"></div>
+        <div class="swiper-button-prev text-yellow-500"></div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+{% block contenido %}
+<section id="nosotros" class="offer_section layout_padding-bottom bg-black">
+        <div class="offer_container">
+                <div
+                                class="flex flex-col justify-center items-center align-middle w-full p-4"
+                                >
+                                <div style="font-family: century-gothic, sans-serif;font-weight:800;" class="text-4xl titlefont text-yellow-500 mt-10 font-bold font-sans">
+                                        Sobre Nosotros
+                                </div>
+
+                        <div
+                                        class="box flex flex-wrap justify-center items-center align-middle w-full max-w-6xl"
+                                        style="background-color: transparent"
+                                        >
+                                        <div
+                                                        class="flex w-full justify-content-center w-[35vh] h-[35vh] lg:w-[40vh] lg:h-[40vh] rounded-full"
+                                                        style="border: 8px solid rgb(122, 23, 23) !important"
+                                                        >
+                                                        <img
+                                                                        src="{% static 'images/vaca.png' %}"
+                                                                        class="bg-cover bg-center h-full w-full rounded-full"
+                                                                        alt="promo"
+                                                                        />
+                                        </div>
+                                                <div class="detail-box m-3">
+                                                        <!--<div class="text-3xl text-white font-extrabold font-sans">
+                                                                Sobre Nosotros
+                                                                </div>-->
+                                                                <div class="text-md flex text-yellow-500 font-bold">
+                                                                        <div class="text-gray-400 text-md text-justify max-w-[40vh]">
+                                                                                Somos una empresa especializada en carnes a la parrilla, con una gran variedad de cortes, contamos con 7 años en el rubro gastronómico, brindando el mejor sabor de carnes a la parrilla, actualmente contamos con 12 sucursales en la ciudad de la paz y el alto, proyectos de franquicia en las ciudades de Santa Cruz y Oruro, brindando un servicio de calidad y atención al cliente.
+                                                                        </div>
+                                                                </div>
+                                                </div>
+                        </div>
+                        <div
+                                        class="box flex flex-wrap justify-center items-center align-middle w-full max-w-6xl"
+                                        style="background-color: transparent"
+                                        >
+                                        <div class="detail-box m-3">
+                                                <div style="font-family: century-gothic, sans-serif;font-weight:800;" class="text-3xl text-white font-extrabold font-sans">
+                                                        Misión 
+                                                </div>
+                                <div class="text-md flex text-yellow-500 font-bold">
+                                        <div class="text-gray-400 text-md text-justify max-w-[40vh]">
+                                                La vaca carnes a la parrilla, busca crear un espacio en el que nuestros clientes puedan disfrutar de la carne asada al estilo argentino hecha al momento con ingredientes frescos y carne de primera calidad, también generar una experiencia memorable en un ambiente familiar a precios accesibles.
+                                        </div>
+
+                                </div>
+                                        </div>
+                                        <div
+                                                        class="flex w-full justify-content-center w-[35vh] h-[35vh] lg:w-[40vh] lg:h-[40vh] rounded-full"
+                                                        style="border: 8px solid rgb(122, 23, 23) !important"
+                                                        >
+                                                        <img
+                                                                        src="{% static 'images/ambientes2.jpg' %}"
+                                                                        class="bg-cover bg-center h-full w-full rounded-full"
+                                                                        alt="promo"
+                                                                        />
+                                        </div>
+                        </div>
+                        <div
+                                        class="box flex flex-wrap justify-center items-center align-middle w-full max-w-6xl"
+                                        style="background-color: transparent"
+                                        >
+                                        <div
+                                                        class="flex w-full justify-content-center w-[35vh] h-[35vh] lg:w-[40vh] lg:h-[40vh] rounded-full"
+                                                        style="border: 8px solid rgb(122, 23, 23) !important"
+                                                        >
+                                                        <img
+                                                                        src="{% static 'images/mision.jpg' %}"
+                                                                        class="bg-cover bg-center h-full w-full rounded-full"
+                                                                        alt="promo"
+                                                                        />
+                                        </div>
+                                                <div class="detail-box m-3">
+                                                        <div style="font-family: century-gothic, sans-serif;font-weight:800;" class="text-3xl text-white font-extrabold font-sans">
+                                                                Visión 
+                                                        </div>
+                                <div class="text-md flex text-yellow-500 font-bold">
+                                        <div class="text-gray-400 text-md text-justify max-w-[40vh]">
+                                                Queremos consolidarnos como el mejor restaurante de carnes a la parrilla en la ciudad de la paz y el alto, manteniendo un excelente servicio y trato a nuestros clientes relacionando precio y calidad.
+                                        </div>
+                                </div>
+                                                </div>
+                        </div>
+                </div>
+        </div>
+</section>
+<section
+                id="mejoresplatos"
+                class="offer_section layout_padding-bottom bg-gradient-to-b from-black via-red-900 to-black"
+
+                >
+                <div class="offer_container">
+                        <div
+                                        class="flex flex-col justify-center items-center align-middle w-full p-2"
+                                        >
+                                        <div style="font-family: century-gothic, sans-serif;font-weight:800;"
+                                             class="text-4xl text-center text-yellow-500 mt-10 font-bold font-sans"
+                                             >
+                                             Promociones
+                                        </div>
+                                                <div class="swiper mySwiper mt-5 ">
+                                                        <div class="swiper-wrapper  ">
+                                                                {% for mp in mejorplato_list%}
+                                                                <div
+                                                                                class="swiper-slide rounded-xl flex flex-wrap bg-transparent"
+                                                                                >
+                                                                                <div
+                                                                                                class="card  bg-cover bg-center h-[50vh] min-w-[35vh] overflow-hidden border-4 border-red-900 text-white bg-dark rounded-xl"
+                                                                                                style="background-image: url({{mp.portada.url}});"
+                                                                                                >
+                                                                                                <!--<div
+                                                                                                        class="font-extrabold text-white text-xl py-4 px-3 h-[12vh] w-full max-w-[35vh] flex justify-center items-center align-middle"
+                                                                                                        style="background-color: rgb(122, 23, 23)"
+                                                                                                        >
+                                                                                                        {{mp.nombre}}
+                                                                                                        </div>-->
+                                                                                </div>
+                                                                </div>
+                                {% empty %}
+                                <div class="text-3xl flex justify-center text-white p-5">
+                                        No Cuenta con Promociones
+                                </div>
+        {% endfor %}
+                                                        </div>
+                                                        <div class="swiper-button-next text-yellow-500"></div>
+                                                        <div class="swiper-button-prev text-yellow-500"></div>
+                                                </div>
+                        </div>
+                </div>
+</section>
+
+<section
+                id="sucursales"
+                class="about_section layout_padding "
+                style="background-color: rgb(0, 0, 0)"
+                >
+                <div style="font-family: century-gothic, sans-serif;font-weight:800;"
+                     class="text-4xl p-4 pb-10 text-yellow-500 flex justify-center text-center w-full font-bold font-sans"
+                     >
+                     Conoce todas Nuestras Sucursales
+                </div>
+                        <div
+                                        style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                                        class="swiper mySwiper2 mt-[10vh]"
+                                        >
+                                        <div
+                                                        class="parallax-bg "
+                                                        style="
+                                                               background-image: url('/static/images/lug.jpg');
+                                                               "
+                                                        data-swiper-parallax="-23%"
+                                                        ></div>
+                                        <div class="swiper-wrapper">
+                                                {% for s in object_list %}
+                                                <div class="swiper-slide flex flex-col py-5 h-[60vh]"  style="background-color: rgba(10,10,10,0.8) !important; " >
+                                                        <div class="text-5xl font-extrabold p-4" data-swiper-parallax="-300">{{s.nombre}}</div>
+                                                        <div class="subtitle font-bold text-yellow-500" data-swiper-parallax="-200">SUCURSAL</div>
+                                                        <div class="text" data-swiper-parallax="-100">
+                                                                <div class="flex justify-center items-center align-middle ">
+                                                                        <div
+                                                                                        class="flex rounded-md shadow-sm mt-3"
+                                                                                        role="group"
+                                                                                        >
+                                                                                        <a
+                                                                                                        href="{% url 'sucursal' s.id %}"
+                                                                                                        type="button"
+                                                                                                        style="background-color: rgb(122, 23, 23);display: flex;"
+                                                                                                        class="flex items-center py-2 px-4 text-sm font-medium text-white rounded-lg m-1 hover:opacity-80"
+                                                                                                        >
+                                                                                                        <svg
+                                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                                        class="mr-1"
+                                                                                                                        aria-hidden="true"
+                                                                                                                        role="img"
+                                                                                                                        width="2em"
+                                                                                                                        height="2em"
+                                                                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                                                                        viewBox="0 0 24 24"
+                                                                                                                        >
+                                                                                                                        <path
+                                                                                                                                        fill="currentColor"
+                                                                                                                                        d="M3 2h2v20H3zm16 0H6v20h13c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-1 10H9v-2h9v2zm0-4H9V6h9v2z"
+                                                                                                                                        />
+                                                                                                        </svg>
+                                                                                                                Ver el menú
+                                                                                        </a>
+
+                                                                                                <!-- <button
+                                                                                                        type="button"
+                                                                                                        data-toggle="modal" data-target="#exampleModal"
+                                                                                                        class="inline-flex items-center py-2 px-4 text-sm font-medium text-white bg-gray-600 rounded-lg m-1 hover:opacity-80"
+                                                                                                        >
+                                                                                                        <svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        class="mr-1"
+                                                                                                        aria-hidden="true"
+                                                                                                        role="img"
+                                                                                                        width="2em"
+                                                                                                        height="2em"
+                                                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                                                        viewBox="0 0 24 24"
+                                                                                                        >
+                                                                                                        <circle cx="12" cy="9.5" r="1.5" fill="currentColor" />
+                                                                                                        <path
+                                                                                                        fill="currentColor"
+                                                                                                        d="M12 2a8 8 0 0 0-8 7.92c0 5.48 7.05 11.58 7.35 11.84a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 9.92A8 8 0 0 0 12 2Zm0 11a3.5 3.5 0 1 1 3.5-3.5A3.5 3.5 0 0 1 12 13Z"
+                                                                                                        />
+                                                                                                        </svg>
+                                                                                                        ¿Como llegar?
+                                                                                                        </button>-->
+                                                                        </div>
+                                                                </div>
+                                                                <a
+                                                                                href="{{s.link_whatsapp}}"
+                                                                                target="_blank"
+                                                                                style="color:rgb(255, 255, 255);display: flex;"
+                                                                                class="flex justify-center items-center w-full py-2 px-4 text-sm font-bold text-gray-500  hover:opacity-80"
+                                                                                >
+                                                                                <svg
+                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                aria-hidden="true"
+                                                                                                role="img"
+                                                                                                width="2em"
+                                                                                                height="2em"
+                                                                                                class="mr-1"
+                                                                                                preserveAspectRatio="xMidYMid meet"
+                                                                                                viewBox="0 0 24 24"
+                                                                                                >
+                                                                                                <path
+                                                                                                                fill="currentColor"
+                                                                                                                fill-rule="evenodd"
+                                                                                                                d="M17.415 14.382c-.298-.149-1.759-.867-2.031-.967c-.272-.099-.47-.148-.669.15c-.198.296-.767.966-.94 1.164c-.174.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.019-.458.13-.606c.134-.133.297-.347.446-.52c.149-.174.198-.298.297-.497c.1-.198.05-.371-.025-.52c-.074-.149-.668-1.612-.916-2.207c-.241-.579-.486-.5-.668-.51c-.174-.008-.372-.01-.57-.01c-.198 0-.52.074-.792.372c-.273.297-1.04 1.016-1.04 2.479c0 1.462 1.064 2.875 1.213 3.074c.149.198 2.095 3.2 5.076 4.487c.71.306 1.263.489 1.694.625c.712.227 1.36.195 1.872.118c.57-.085 1.758-.719 2.006-1.413c.247-.694.247-1.289.173-1.413c-.074-.124-.272-.198-.57-.347Zm-5.422 7.403h-.004a9.87 9.87 0 0 1-5.032-1.378l-.36-.214l-3.742.982l.999-3.648l-.235-.374a9.861 9.861 0 0 1-1.511-5.26c.002-5.45 4.436-9.884 9.889-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.892 6.993c-.002 5.45-4.436 9.885-9.884 9.885Zm8.412-18.297A11.815 11.815 0 0 0 11.992 0C5.438 0 .102 5.335.1 11.892a11.864 11.864 0 0 0 1.587 5.945L0 24l6.304-1.654a11.881 11.881 0 0 0 5.684 1.448h.005c6.554 0 11.89-5.335 11.892-11.893a11.821 11.821 0 0 0-3.48-8.413"
+                                                                                                                clip-rule="evenodd"
+                                                                                                                />
+                                                                                </svg>
+                                                                                        Comunicarme con la Sucursal
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                                {% empty %}
+                                                <div class="text-3xl flex justify-center w-full items-center align-middle text-white p-5">
+                                                        No tiene Sucursales registradas
+                                                </div>
+                                                {% endfor %}
+
+                                        </div>
+                                        <div class="swiper-button-next text-yellow-500"></div>
+                                        <div class="swiper-button-prev text-yellow-500"></div>
+
+
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                                <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                        ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+
+
+                        <div
+                                        class="p-4 flex flex-wrap-reverse lg:flex-wrap justify-center items-center align-middle"
+                                        style="background-color: rgb(122, 23, 23)"
+                                        >
+                                        <div
+                                                        class="flex w-[50vh] p-5 flex-col justify-center items-center align-middle"
+                                                        >
+                                                        <div
+                                                                        class="text-6xl xl:text-8xl p-4 text-yellow-500 flex justify-center text-center font-bold font-sans"
+                                                                        >
+                                                                        Mapa
+                                                        </div>
+                                                                <div class="text-white font-bold text-md flex">
+                                                                        Mira Nuestra Carta
+                                                                </div>
+
+
+                                                <select
+                                                                id="sucursal" name="sucursal" onchange="ShowSelected();"
+                                                                                              class="bg-gray-50 mt-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                                                              >
+                                                                                              <option selected>Selecciona la sucursal</option>
+                                                                                              {% for s in object_list %}
+                                                                                              <option value="{{s.id}}">{{s.nombre}}</option>
+                                                                                              {% empty %}
+                                                                                              <option value="id">Sucursales no disponibles</option>
+                                                                                              {% endfor %}
+                                                </select>
+                                                <a
+                                                                type="button"
+                                                                id="linkmenu"
+                                                                href="#"
+                                                                class="flex justify-center items-center w-[35vh] py-2 px-4 text-sm font-bold text-red-900 mt-3 xl:max-w-[20vh] bg-white rounded-lg m-1 hover:bg-gray-500 hover:text-red-800"
+                                                                >
+                                                                <svg
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                class="mr-1"
+                                                                                aria-hidden="true"
+                                                                                role="img"
+                                                                                width="2em"
+                                                                                height="2em"
+                                                                                preserveAspectRatio="xMidYMid meet"
+                                                                                viewBox="0 0 24 24"
+                                                                                >
+                                                                                <path
+                                                                                                fill="currentColor"
+                                                                                                d="M3 2h2v20H3zm16 0H6v20h13c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-1 10H9v-2h9v2zm0-4H9V6h9v2z"
+                                                                                                />
+                                                                </svg>
+                                                                        Ver la carta
+                                                </a>
+
+                                        </div>
+
+                                        <div id="map" class="w-[80vh] h-[40vh] block rounded-xl"></div>
+                        </div>
+</section>
+
+{% endblock %}
+{% block footer %}
+<div
+                style="
+                       background-image: url('../static/images/fuegooo.png');
+                       background-repeat: no-repeat;
+                       background-size: cover;
+                       "
+                >
+                <footer class="footer_section bg-transparent">
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col-md-4 footer-col">
+                                                <div
+                                                                class="footer_contact flex flex-col justify-center items-center align-middle"
+                                                                >
+                                                                <div class="text-sans font-bold text-3xl">Casa Matriz</div>
+                                                                <div class="contact_link_box text-left">
+                                                                        <a href="">
+                                                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                                                <span class="font-bold"> Localizacion </span>
+                                                                        </a>
+                                                                        <a href="">
+                                                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                                                                <span class="font-bold"> telefono +591 22241546 </span>
+                                                                        </a>
+                                                                        <a href="">
+                                                                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                                                <span class="font-bold"> lavacacarnesalaparrilla@gmail.com </span>
+                                                                        </a>
+                                                                </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-md-4 footer-col">
+                                                <div class="footer_detail">
+                                                        <a href="" class="text-sans font-bold text-3xl"> La Vaca </a>
+                                                        <p class="font-bold">Nuestras redes sociales</p>
+                                                        <div class="text-white" style="font-size:30px;">
+                                                                <a class="hover:text-gray-200" target="_blank"  href="https://www.facebook.com/LaVacaCarnesALaParrilla/">
+                                                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                                                </a>
+
+                                                                <a class="hover:text-gray-200" target="_blank" href="https://www.instagram.com/lavaca_carnesalaparrilla/">
+                                                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                                                </a>
+                                                                <a class="hover:text-gray-200" target="_blank" href="https://wa.link/2j9e2e">
+                                                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-md-4 footer-col">
+                                                <div class="text-sans font-bold text-3xl">Horarios</div>
+                                                <p class="font-bold">Lunes - Sábado</p>
+                                                <p class="font-bold">11.00 Am - 21.30 Pm</p>
+                                                <p class="font-bold">Domingos</p>
+                                                <p class="font-bold">11:00 Am - 19:00 Pm</p>
+                                        </div>
+                                </div>
+                                <div class="footer-info">
+                                        <p>
+                                        &copy; <span id="displayYear"></span> Todos los derechos
+                                        reservados <br /><br />
+                                        </p>
+                                </div>
+                        </div>
+                </footer>
+
+</div>
+{% endblock %}
+{% block botonw %}
+<a href="https://wa.link/2j9e2e" class="whatsapp  hover:text-white" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+        function ShowSelected()
+        {
+                        var cod = document.getElementById("sucursal").value;
+                        document.getElementById('linkmenu').setAttribute('href',  cod);
+
+                }
+</script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+        var swiper = new Swiper(".mySwiper3", {
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                        loop:true,
+                        autoplay: {
+                                        delay: 2500,
+                                        disableOnInteraction: false,
+                                },
+                        pagination: {
+                                        el: ".swiper-pagination",
+                                        clickable: true,
+                                },
+                        navigation: {
+                                        nextEl: ".swiper-button-next",
+                                        prevEl: ".swiper-button-prev",
+                                },
+                });
+</script>
+<script>
+        var swiper = new Swiper(".mySwiper2", {
+                        speed: 600,
+                        parallax: true,
+                        pagination: {
+                                        el: ".swiper-pagination",
+                                        clickable: true,
+                                },
+                        navigation: {
+                                        nextEl: ".swiper-button-next",
+                                        prevEl: ".swiper-button-prev",
+                                },
+                });
+</script>
+<script>
+        var swiper = new Swiper(".mySwiper", {
+                        slidesPerView: 3,
+                        spaceBetween: 25,
+                        loop: true,
+                        centerSlide: 'true',
+                        fade: 'true',
+                        grabCursor: 'true',
+                        pagination: {
+                                        el: ".swiper-pagination",
+                                        clickable: true,
+                                        dynamicBullets: true,
+                                },
+                        navigation: {
+                                        nextEl: ".swiper-button-next",
+                                        prevEl: ".swiper-button-prev",
+                                },
+
+                        breakpoints:{
+                                        0: {
+                                                        slidesPerView: 1,
+                                                },
+                                        520: {
+                                                        slidesPerView: 2,
+                                                },
+                                        950: {
+                                                        slidesPerView: 3,
+                                                },
+                                },
+
+                });
+</script>
+
+
+
+<script
+                src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+                integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+                crossorigin=""
+                ></script>
+
+<script>
+        var map = L.map("map").setView([-16.5, -68.15], 12);
+
+        var IconVaca = L.icon({
+                        iconUrl: "{% static 'images/logovaca.png'%}",
+
+                        iconSize: [30, 30], // size of the icon
+                        shadowSize: [50, 64], // size of the shadow
+                        iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+                        shadowAnchor: [4, 62], // the same for the shadow
+                        popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+                });
+        L.marker([-16.49891644600154, -68.12099798323325], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL AV. BUSH");
+        L.marker([-16.501517660875052, -68.12131389766758], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL DIAZ ROMERO");
+        L.marker([-16.50251382647449, -68.1220267820903], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL MIRAFLORES PLAZA");
+        L.marker([-16.510988003087384, -68.12614718961072], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL SOPOCACHI PLAZA AVAROA");
+        L.marker([-16.52485545495943, -68.11067197319646], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL OBRAJES CALLE 5");
+        L.marker([-16.540814957697826, -68.07878132698922], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL SAN MIGUEL AV. MONTENEGRO");
+        L.marker([-16.510717070858714, -68.12218611875241], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL MULTICINE");
+        L.marker([-16.530738495698664, -68.08720606545141], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL MEGA CENTER");
+        L.marker([-16.515754857813747, -68.16561360795505], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL CIELO MALL EL ALTO");
+        L.marker([-16.490636225411535, -68.20403666136329], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL MULTICINE EL ALTO");
+        L.marker([-16.49764245033815, -68.12421409074881], { icon: IconVaca })
+                .addTo(map)
+                .bindPopup("SUCURSAL PLAZA UYUNI");
+        L.tileLayer(
+                        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                        {
+                                        maxZoom: 19,
+                                        attribution: "",
+                                }
+                ).addTo(map);
+</script>
+
+{% endblock %}
